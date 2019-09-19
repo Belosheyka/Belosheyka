@@ -7,14 +7,14 @@ namespace ConsoleApp4
    {
       private static void Main()
       {
-         BigInteger a = 0;
-         BigInteger b = 1;
+         BigInteger x = 0;
+         BigInteger y = 1;
          var count = 0;
-         while (a.ToString().Length<1000)
+         while (x.ToString().Length<1000)
          {
-            var c = a + b;
-            a = b;
-            b = c;
+            var z = x + y;
+            x = y;
+            y = z;
             count++;
          }
 
