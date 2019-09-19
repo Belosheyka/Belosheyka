@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+
+
+namespace Program2
+{
+   class Program
+   {
+      static void Main(string[] args)
+      {
+         int counter = 0;
+         int num = 1;
+         List<int> numList = new List<int>();
+         var input = int.Parse(Console.ReadLine());
+         while (counter < input)
+         {
+            var test = true;
+            for (int i = 0; i < numList.Count; i++)
+            if (num % numList[i] == 0)
+               {
+                  test = false;
+                  break;
+               }
+
+            if (test && num != 1)
+            {
+               numList.Add(num);
+               counter++;
+            }
+            num++;
+         }
+         Console.WriteLine(numList[numList.Count - 1]);
+      }
+   }
+} 
