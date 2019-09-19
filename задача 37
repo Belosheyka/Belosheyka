@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ConsoleApp13
+{
+   class Program
+   {
+      static void Main()
+      {
+         var result =Sum();
+         Console.WriteLine(result);
+         Console.ReadLine();
+      }
+
+      public static int Sum()
+      {
+         var list = new List<int>();
+         var number =10;
+         while (list.Count != 11)
+         {
+            if (EndDelete(number) && StartDelete(number))
+               list.Add(number);
+            number++;
+         }
+         return list.Sum();
+      }
+
+      static bool SimpleNumber(int number)
+      {
+         if (number == 1) return false;
+         for (var i = 2; i <= Math.Sqrt(number); i++)
+         {
+            if (number % i == 0)
+            return false;
+         }
+         return true;
+      }
+
+      static bool StartDelete(int number)
+      {
+         while (number != 0)
+         {
+            if (SimpleNumber(number))
+               if (number.ToString().Length!=1)
+                  number = int.Parse(number.ToString().Remove(0,1));
+               else number = 0;
+            else return false;
+         }
+         return true;
+      }
+
+      static bool EndDelete(int number)
+      {
+         while (number != 0)
+         {
+            if (SimpleNumber(number))
+               if (number.ToString().Length != 1)
+                  number = int.Parse(number.ToString().Remove(number.ToString().Length - 1, 1));
+               else number = 0;
+            else return false;
+         }
+         return true;
+      }
+   }
+}
